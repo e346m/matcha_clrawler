@@ -2,31 +2,31 @@ class Matcha::Crawler
   #Capybara.javascript_driver = :poltergeist
   #Capybara.current_driver = :poltergeist
   Capybara.javascript_driver = :webkit
-  MATCHA_DOMEIN = "https://matcha-jp.com/"
   def initialize
     @session = Capybara::Session.new :webkit
   end
-  def save_article country, num
-    access_page country, num
-    paragraphs = get_paragraph
 
-    paragraphs.each.with_index(1) do |row, index|
-      article = Article.new ({
-        issue_num: num,
-        country: country,
-        row_num: index,
-        text: row.text
-      })
-      article.save
+  def crawling! num
+    begin
+      access_page num
+      paragraphs = get_paragraph
+      save_article num, paragraphs
+    rescue Exception => e
+      print e
     end
   end
-  def access_page country, num
-    @session.visit MATCHA_DOMEIN + "#{country}/#{num}"
+
+  private
+  def access_page num
+    @session.visit Settings.Domain.send(jadge_country) + num.to_s
   end
   def get_paragraph
     @session.find("div.contents_text").all("p")
   end
   def has_information
     @session.find("div.infomation").text #this is typo in matcha
+  end
+  def jadge_country
+    self.to_s.match(%r{Matcha::(.+?):.+\w})[1].intern
   end
 end

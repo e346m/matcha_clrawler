@@ -15,6 +15,7 @@ gem "poltergeist"       # PhantomJS連携のヘッドレスブラウザ
 gem "sidekiq"
 gem "sidekiq-cron"
 gem "redis",  "~> 3.2"
+gem "config"
 
 group :development, :test do
   gem "byebug", platform: :mri
