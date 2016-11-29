@@ -7,11 +7,13 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.2"
 gem "jquery-rails"
+gem "bootstrap"
 gem "jbuilder", "~> 2.5"
 gem "capybara"
 gem "capybara-webkit"
 gem "poltergeist"       # PhantomJS連携のヘッドレスブラウザ
 
+gem "slim-rails"
 gem "sidekiq"
 gem "sidekiq-cron"
 gem "redis",  "~> 3.2"

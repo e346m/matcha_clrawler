@@ -5,11 +5,9 @@ class Matcha::En < Matcha::Crawler
 
   #TODO 何か取れていない情報があったのと行数がおかしかった問題
   def save_article num, paragraphs
-    paragraphs.each.with_index(1) do |row, index|
+    paragraphs.each do |row|
       article = Article.new ({
-        issue_num: num,
-        country: country,
-        row_num: index,
+        country: "en",
         text: row.text
       })
       article.save

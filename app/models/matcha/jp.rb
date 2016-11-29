@@ -4,11 +4,9 @@ class Matcha::Jp < Matcha::Crawler
   end
 
   def save_article num, parag
-    parag.each.with_index(1) do |row, index|
+    parag.each do |row|
       article = Article.new ({
-        issue_num: num,
-        country: country,
-        row_num: index,
+        country: "jp",
         text: row.text
       })
       article.save
