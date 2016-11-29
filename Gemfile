@@ -18,6 +18,7 @@ gem "sidekiq"
 gem "sidekiq-cron"
 gem "redis",  "~> 3.2"
 gem "config"
+gem "annotate"
 
 group :development, :test do
   gem "byebug", platform: :mri

@@ -15,13 +15,8 @@ ActiveRecord::Schema.define(version: 20161129011645) do
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "issue_num"
     t.string   "edition"
-    t.integer  "content_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_articles_on_category_id", using: :btree
-    t.index ["content_id"], name: "index_articles_on_content_id", using: :btree
-    t.index ["issue_num"], name: "index_articles_on_issue_num", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

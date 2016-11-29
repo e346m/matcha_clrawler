@@ -6,16 +6,20 @@ h1
   .col-xs
     - @articles.each do |article|
       p.align-baseline
-      - if article.country == "en"
-        = article.row_num
-        =>
-        = article.text
+      - if article.edition == "EN"
+        - article.contents.each.with_index(1) do |content, row|
+          = row
+          =>
+          = content.sequence
+          br
   .col-xs
     - @articles.each do |article|
       p.align-baseline
-      - if article.country == "jp"
-        = article.row_num
-        =>
-        = article.text
+      - if article.edition == "JP"
+        - article.contents.each.with_index(1) do |content, row|
+          = row
+          =>
+          = content.sequence
+          br
 br
 = link_to 'New Article', new_article_path
