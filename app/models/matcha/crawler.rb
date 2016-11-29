@@ -46,8 +46,8 @@ class Matcha::Crawler
     sentence = parag.reject do |row|
       row.text.blank?
     end
-    article.contents_attributes = sentence.map do |text|
-      {sequence: text}
+    article.contents_attributes = sentence.map do |row|
+      {sequence: row.text}
     end
     article.save
   end
