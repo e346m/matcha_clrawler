@@ -11,6 +11,9 @@ module MatchaCrawler
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.generators.template_engine = :slim
+    config.generators do |g|
+      g.template_engine = :slim
+      g.test_framework :rspec, fixture: false
+    end
   end
 end
