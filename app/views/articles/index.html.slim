@@ -1,0 +1,21 @@
+p#notice
+  = notice
+h1
+  | Articles
+.row
+  .col-xs
+    - @articles.each do |article|
+      p.align-baseline
+      - if article.country == "en"
+        = article.row_num
+        =>
+        = article.text
+  .col-xs
+    - @articles.each do |article|
+      p.align-baseline
+      - if article.country == "jp"
+        = article.row_num
+        =>
+        = article.text
+br
+= link_to 'New Article', new_article_path
