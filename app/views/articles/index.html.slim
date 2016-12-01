@@ -7,13 +7,13 @@ h1
     - @articles.each do |article|
       p.align-baseline
       - if article.edition == "VN"
-        = "記事番号: #{content.issue_num} "
+        = "記事番号: #{article.issue_num} "
         br
   .col-xs
     - @articles.each do |article|
       p.align-baseline
       - if article.edition == "JP"
-        = "記事番号: #{content.issue_num} "
+        = "記事番号: #{article.issue_num} "
         br
 br
 = link_to 'New Article', new_article_path
