@@ -7,19 +7,15 @@ h1
     - @articles.each do |article|
       p.align-baseline
       - if article.edition == "VN"
-        - article.contents.each.with_index(1) do |content, row|
-          = row
-          =>
-          = content.sequence
+        - article.contents.each do |content|
+          = "記事番号: #{content.issue_num} "
           br
   .col-xs
     - @articles.each do |article|
       p.align-baseline
       - if article.edition == "JP"
-        - article.contents.each.with_index(1) do |content, row|
-          = row
-          =>
-          = content.sequence
+        - article.contents.each do |content|
+          = "記事番号: #{content.issue_num} "
           br
 br
 = link_to 'New Article', new_article_path
