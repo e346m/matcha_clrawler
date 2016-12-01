@@ -18,7 +18,7 @@ class Article < ApplicationRecord
     where issue_num: issue_num_from_clue(id)
   end
   class << self
-    def isuue_num_from_clue id
+    def issue_num_from_clue id
       Article.find(id).issue_num
     end
   end

@@ -4,21 +4,12 @@ h1
   | Articles
 .row
   - @articles.each do |article|
-  .col-xs
-    p.align-baseline
-    - if article.edition == "VN"
-      - @article.content.each.with_index(1) do |seq, row|
-        = row
-        =>
-        = seq
-        br
-  .col-xs
-    p.align-baseline
-    - if article.edition == "JP"
-      - @article.content.each.with_index(1) do |seq, row|
-        = row
-        =>
-        = seq
-        br
+    .col-xs
+      p.align-baseline
+        - @article.content.each.with_index(1) do |content, row|
+          = row
+          =>
+          = content.sequence
+          br
 br
 = link_to 'Back', articles_path
