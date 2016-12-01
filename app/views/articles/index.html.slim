@@ -6,7 +6,7 @@ h1
   .col-xs
     - @articles.each do |article|
       p.align-baseline
-      - if article.edition == "EN"
+      - if article.edition == "VN"
         - article.contents.each.with_index(1) do |content, row|
           = row
           =>
