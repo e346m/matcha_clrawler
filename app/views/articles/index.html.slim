@@ -8,7 +8,7 @@ h1
       p.align-baseline
       - if article.edition == "VN"
         = "記事番号: #{article.issue_num} "
-        = link_to "Show", article_path
+        = link_to "Show", article
         br
   .col-xs
     - @articles.each do |article|
