@@ -21,16 +21,16 @@ class Article < ApplicationRecord
     def issue_num_from_clue id
       Article.find(id).issue_num
     end
-    #def check_differnt_lines_article
-    #  result = []
-    #  Article.where(edition: "VN").pluck(:id).each do |_id|
-    #    size = []
-    #    Article.get_multi_edition(_id).each do |ins|
-    #      size << ins.contents.size
-    #    end
-    #    result << _id if size[0] == size[1]
-    #  end
-    #  return result
-    #end
+    def check_differnt_lines_article
+      result = []
+      Article.where(edition: "VN").pluck(:id).each do |_id|
+        size = []
+        Article.get_multi_edition(_id).each do |ins|
+          size << ins.contents.size
+        end
+        result << _id if size[0] != size[1]
+      end
+      return result
+    end
   end
 end

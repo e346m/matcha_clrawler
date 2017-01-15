@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
   def edit
+    @articles = Article.get_multi_edition params[:id]
   end
   def create
     @article = Article.new(article_params)
